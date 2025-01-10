@@ -1,0 +1,55 @@
+{
+  "name": "AdityaPlayer",
+  "description": "An advanced & powerfull vc streaaming bot for telegram.",
+  "keywords": [
+    "musicbot",
+    "vcbot",
+    "musicplayer"
+  ],
+  "repository": "https://github.com/adityahalder/adityaplayer",
+  "logo": "https://envs.sh/9oZ.jpg",
+  "stack": "container",
+  "env": {
+    "API_ID": {
+      "description": "Get it from my telegram chat group.",
+      "value": "12380656",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "The number of processes to run.",
+      "value": "d927c13beaaf5110f25c505b7c071273",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Get it from botfather.",
+      "required": true
+    },
+    "STRING_SESISON": {
+      "description": "Generate pyrogram v2 string session and paste here.",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Paste user_id of bot owner.",
+      "required": true
+    },
+    "LOG_GROUP_ID": {
+      "description": "Provide an chat_id for logs.",
+      "required": true
+    },
+    "MONGO_DB_URL": {
+      "description": "Paste here your mongodb url.",
+      "required": true
+    },
+    "START_IMAGE_URL": {
+      "description": "An image url for your bot.",
+      "value": "https://graph.org/file/918101d0ad6b1207e6201.png",
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-2x"
+    }
+  }
+}
