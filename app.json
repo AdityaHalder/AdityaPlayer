@@ -24,7 +24,7 @@
       "description": "Get it from botfather.",
       "required": true
     },
-    "STRING_SESISON": {
+    "STRING_SESSION": {
       "description": "Generate pyrogram v2 string session and paste here.",
       "required": true
     },
