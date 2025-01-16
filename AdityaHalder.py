@@ -679,7 +679,7 @@ async def get_youtube_stream(link):
             "nocheckcertificate": True,
             "quiet": True,
             "no_warnings": True,
-            "cookiefile": "cookie.txt",
+            "cookiefile": "cookies.txt",
         }
         x = yt_dlp.YoutubeDL(ydl_optssx)
         info = x.extract_info(link, False)
