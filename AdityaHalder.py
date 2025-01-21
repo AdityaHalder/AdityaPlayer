@@ -858,7 +858,21 @@ async def change_stream(chat_id):
     buttons = InlineKeyboardMarkup(
         [
             [
+                    InlineKeyboardButton(
+                        text="🌺ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ🌺",
+                        url=f"https://t.me/{bot.me.username}?startgroup=true",
+                    )
+            ],
+                 [
                 InlineKeyboardButton(
+                        text="🌺ᴏᴡɴᴇʀ🌺",
+                        url=f"https://t.me/cute_boy91"),
+                    InlineKeyboardButton(
+                        text="๏ ᴜᴘᴅᴀᴛᴇ ๏",
+                        url=f"https://t.me/quizbys",)
+                 ],
+        [
+           InlineKeyboardButton(
                     text="🗑️ Close",
                     callback_data="force_close",
                 )
@@ -950,15 +964,29 @@ async def stream_audio_or_video(client, message):
     else:
         if len(message.command) < 2:
             buttons = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="🗑️ Close",
-                            callback_data="force_close",
-                        )
-                    ],
-                ]
-            )
+        [
+            [
+                    InlineKeyboardButton(
+                        text="🌺ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ🌺",
+                        url=f"https://t.me/{bot.me.username}?startgroup=true",
+                    )
+            ],
+                 [
+                InlineKeyboardButton(
+                        text="🌺ᴏᴡɴᴇʀ🌺",
+                        url=f"https://t.me/cute_boy91"),
+                    InlineKeyboardButton(
+                        text="๏ ᴜᴘᴅᴀᴛᴇ ๏",
+                        url=f"https://t.me/quizbys",)
+                 ],
+        [
+           InlineKeyboardButton(
+                    text="🗑️ Close",
+                    callback_data="force_close",
+                )
+            ],
+        ]
+    )
             return await aux.edit_text(
                 "**🥀 Give Me Some Query To\nPlay Audio Or Video❗...\n\nℹ️ Examples:\n≽ Audio: `/play satisfya`\n≽ Video: `/vplay satisfya`**",
                 reply_markup=buttons,
@@ -1023,10 +1051,24 @@ async def stream_audio_or_video(client, message):
             requested_by = "[" + user.title + "](https://t.me/" + user.username + ")"
         else:
             requested_by = user.title
-    buttons = InlineKeyboardMarkup(
+     buttons = InlineKeyboardMarkup(
         [
             [
+                    InlineKeyboardButton(
+                        text="🌺ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ🌺",
+                        url=f"https://t.me/{bot.me.username}?startgroup=true",
+                    )
+            ],
+                 [
                 InlineKeyboardButton(
+                        text="🌺ᴏᴡɴᴇʀ🌺",
+                        url=f"https://t.me/cute_boy91"),
+                    InlineKeyboardButton(
+                        text="๏ ᴜᴘᴅᴀᴛᴇ ๏",
+                        url=f"https://t.me/quizbys",)
+                 ],
+        [
+           InlineKeyboardButton(
                     text="🗑️ Close",
                     callback_data="force_close",
                 )
