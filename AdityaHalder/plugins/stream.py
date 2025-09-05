@@ -393,6 +393,10 @@ async def start_stream_in_vc(client, message):
     video_telegram = replied.video or replied.document if replied else None
     
     if audio_telegram or video_telegram:
+        try:
+            aux =  await message.reply_text("**🔄 Processing ✨...**")
+        except Exception:
+            pass
         if audio_telegram:
             id = audio_telegram.file_unique_id
             try:
@@ -411,7 +415,7 @@ async def start_stream_in_vc(client, message):
                 os.path.realpath("downloads"), file_name
             )
             duration_sec = audio_telegram.duration
-            
+            video_stream = False
         if video_telegram:
             id = video_telegram.file_unique_id
             try:
@@ -426,7 +430,24 @@ async def start_stream_in_vc(client, message):
                 os.path.realpath("downloads"), file_name
             )
             duration_sec = video_telegram.duration
-            
+            video_stream = True
+        if not os.path.exists(file_name):
+            try:
+                try:
+                    await aux.edit("**⬇️ Downloading ✨...**")
+                except Exception:
+                    pass
+                await replied.download(file_name=file_name)
+            except Exception:
+                try:
+                    return await aux.edit("❌ Failed to download, please try again.")
+                except Exception:
+                    return
+                    
+            while not os.path.exists(file_name):
+                await asyncio.sleep(0.5)
+                
+        file_path = file_name
         duration_mins = format_duration(duration_sec)
         views = "None"
         image_path = "AdityaHalder/resource/thumbnail.png"
@@ -637,6 +658,7 @@ Stream Audio Or Video❗...
             await bot.send_photo(console.LOG_GROUP_ID, photo=thumbnail, caption=log_message)
         except Exception:
             pass
+
 
 
 
