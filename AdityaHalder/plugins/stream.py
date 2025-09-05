@@ -393,12 +393,51 @@ async def start_stream_in_vc(client, message):
     video_telegram = replied.video or replied.document if replied else None
     
     if audio_telegram or video_telegram:
-        try:
-            return await message.reply_text(
-                "**🥺 Sorry, I Can't Stream Telegram Media Files Right Now.**"
+        if audio_telegram:
+            id = audio_telegram.file_unique_id
+            try:
+                file_name = (
+                    audio_telegram.file_unique_id
+                    + "."
+                    + (
+                        (audio_telegram.file_name.split(".")[-1])
+                        if (not isinstance(audio_telegram, Voice))
+                        else "ogg"
+                    )
+                )
+            except:
+                file_name = audio_telegram.file_unique_id + "." + "ogg"
+            file_name = os.path.join(
+                os.path.realpath("downloads"), file_name
             )
-        except Exception:
-            return
+            duration_sec = audio_telegram.duration
+            
+        if video_telegram:
+            id = video_telegram.file_unique_id
+            try:
+                file_name = (
+                    video_telegram.file_unique_id
+                    + "."
+                    + (video_telegram.file_name.split(".")[-1])
+                )
+            except:
+                file_name = video_telegram.file_unique_id + "." + "mp4"
+            file_name = os.path.join(
+                os.path.realpath("downloads"), file_name
+            )
+            duration_sec = video_telegram.duration
+            
+        duration_mins = format_duration(duration_sec)
+        views = "None"
+        image_path = "AdityaHalder/resource/thumbnail.png"
+        channellink = (
+            f"https://t.me/{message.chat.username}"
+            if message.chat.username
+            else "Telegram Channel"
+        )
+        channel = message.chat.title
+        link = message.link
+        
     else:
         if len(message.command) < 2:
             return await message.reply_text(
@@ -598,6 +637,7 @@ Stream Audio Or Video❗...
             await bot.send_photo(console.LOG_GROUP_ID, photo=thumbnail, caption=log_message)
         except Exception:
             pass
+
 
 
 
