@@ -9,7 +9,7 @@ except:
     logs(__name__).info("⚠️ 'MONGO_URL' - is not valid❗")
     sys.exit()
 
-adb = adb_cli.AdityaPlayer
+adb = adb_cli[console.DB_NAME]
     
 
 assistantdb = adb.assistants
