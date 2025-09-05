@@ -1,3 +1,5 @@
+import sys
+
 from .. import console
 from .database import get_assistant, group_assistant
 from .helpers import AssistantErr
