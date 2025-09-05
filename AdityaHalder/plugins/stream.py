@@ -399,7 +399,7 @@ async def start_stream_in_vc(client, message):
             pass
         if audio_telegram:
             id = audio_telegram.file_unique_id
-            full_title = audio_telegram.file_name
+            full_title = audio_telegram.title or audio_telegram.file_name
             try:
                 file_name = (
                     audio_telegram.file_unique_id
@@ -419,7 +419,7 @@ async def start_stream_in_vc(client, message):
             video_stream = False
         if video_telegram:
             id = video_telegram.file_unique_id
-            full_title = video_telegram.file_name
+            full_title = video_telegram.title or video_telegram.file_name
             try:
                 file_name = (
                     video_telegram.file_unique_id
@@ -460,7 +460,7 @@ async def start_stream_in_vc(client, message):
             else "Telegram Channel"
         )
         channel = message.chat.title
-        link = message.link
+        link = replied.link
         
     else:
         if len(message.command) < 2:
@@ -661,6 +661,7 @@ Stream Audio Or Video❗...
             await bot.send_photo(console.LOG_GROUP_ID, photo=thumbnail, caption=log_message)
         except Exception:
             pass
+
 
 
 
